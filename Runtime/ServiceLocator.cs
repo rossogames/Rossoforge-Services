@@ -10,27 +10,36 @@ namespace RossoForge.Service
         private readonly List<Type> _initializedServices = new();
         private static ServiceLocator _current;
 
-        private ServiceLocator()
+        private static ServiceLocator Current
         {
-            _current = new ServiceLocator();
+            get
+            {
+                _current ??= new();
+                return _current;
+            }
         }
 
-        public static void Initialize() => _current.InitializeServices();
-        public static T Get<T>() where T : IService => _current.GetService<T>();
-        public static void Register<T>(T service) where T : IService => _current.RegisterService<T>(service);
-        public static void Unregister<T>() where T : IService => _current.UnregisterService<T>();
+        private ServiceLocator()
+        {
+        }
+
+        public static void Initialize() => Current.InitializeServices();
+        public static T Get<T>() where T : IService => Current.GetService<T>();
+        public static void Register<T>(T service) where T : IService => Current.RegisterService<T>(service);
+        public static void Unregister<T>() where T : IService => Current.UnregisterService<T>();
 
         private void InitializeServices()
         {
             foreach (var item in services)
             {
-                if (!_initializedServices.Contains(item.Key))
-                {
-                    if (item.Value is IInitializable initializableService)
-                        initializableService.Initialize();
+                if (_initializedServices.Contains(item.Key))
+                    continue;
 
-                    _initializedServices.Add(item.Key);
-                }
+                if (item.Value is IInitializable initializableService)
+                    initializableService.Initialize();
+
+                Debug.Log($"Service {item.Key.Name} initialized");
+                _initializedServices.Add(item.Key);
             }
         }
         private T GetService<T>() where T : IService
@@ -50,7 +59,7 @@ namespace RossoForge.Service
             if (services.ContainsKey(key))
             {
                 Debug.LogError($"Attempted to register service of type {key.Name} which is already registered on {GetType().Name}.");
-                return;
+                throw new InvalidOperationException();
             }
 
             services.Add(key, service);
@@ -62,7 +71,7 @@ namespace RossoForge.Service
             if (!services.ContainsKey(_serviceType))
             {
                 Debug.LogError($"Attempted to unregister service of type {_serviceType.Name} which is not registered on {GetType().Name}.");
-                return;
+                throw new InvalidOperationException();
             }
 
             var service = services[_serviceType];
