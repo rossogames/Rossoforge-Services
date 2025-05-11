@@ -1,0 +1,12 @@
+using UnityEngine;
+
+namespace RossoForge.Service
+{
+    public interface IServiceLocator
+    {
+        void Initialize();
+        T Get<T>() where T : IService;
+        void Register<T>(T service) where T : IService;
+        void Unregister<T>() where T : IService;
+    }
+}
