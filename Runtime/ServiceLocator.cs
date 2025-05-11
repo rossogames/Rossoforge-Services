@@ -9,19 +9,17 @@ namespace RossoForge.Service
         private readonly Dictionary<Type, IService> services = new();
         private static ServiceLocator _current;
 
-        private static ServiceLocator Current
+        private readonly object _lock = new();
+
+        public static void SetLocator(ServiceLocator locator)
         {
-            get
-            {
-                _current ??= new();
-                return _current;
-            }
+            _current = locator ?? throw new ArgumentNullException(nameof(locator));
         }
 
-        public static void Initialize() => Current.InitializeServices();
-        public static T Get<T>() where T : IService => Current.GetService<T>();
-        public static void Register<T>(T service) where T : IService => Current.RegisterService<T>(service);
-        public static void Unregister<T>() where T : IService => Current.UnregisterService<T>();
+        public static void Initialize() => _current.InitializeServices();
+        public static T Get<T>() where T : IService => _current.GetService<T>();
+        public static void Register<T>(T service) where T : IService => _current.RegisterService<T>(service);
+        public static void Unregister<T>() where T : IService => _current.UnregisterService<T>();
 
         private void InitializeServices()
         {
@@ -36,45 +34,54 @@ namespace RossoForge.Service
         }
         private T GetService<T>() where T : IService
         {
-            Type key = typeof(T);
-            if (!services.ContainsKey(key))
+            lock (_lock)
             {
-                throw new InvalidOperationException($"{key.Name} is not registered on {GetType().Name}");
-            }
+                Type key = typeof(T);
+                if (!services.ContainsKey(key))
+                {
+                    throw new InvalidOperationException($"{key.Name} is not registered on {GetType().Name}");
+                }
 
-            return (T)services[key];
+                return (T)services[key];
+            }
         }
         private void RegisterService<T>(T service) where T : IService
         {
-            Type _key = typeof(T);
-            if (services.ContainsKey(_key))
+            lock (_lock)
             {
-                throw new InvalidOperationException($"Attempted to register service of type {_key.Name} which is already registered on {GetType().Name}");
-            }
+                Type _key = typeof(T);
+                if (services.ContainsKey(_key))
+                {
+                    throw new InvalidOperationException($"Attempted to register service of type {_key.Name} which is already registered on {GetType().Name}");
+                }
 
-            services.Add(_key, service);
+                services.Add(_key, service);
 #if UNITY_EDITOR
-            Debug.Log($"Service {_key.Name} registered");
-#endif 
+                Debug.Log($"Service {_key.Name} registered");
+#endif
+            }
         }
 
         private void UnregisterService<T>() where T : IService
         {
-            Type _key = typeof(T);
-            if (!services.ContainsKey(_key))
+            lock (_lock)
             {
-                throw new InvalidOperationException($"Attempted to unregister service of type {_key.Name} which is not registered on {GetType().Name}");
-            }
+                Type _key = typeof(T);
+                if (!services.ContainsKey(_key))
+                {
+                    throw new InvalidOperationException($"Attempted to unregister service of type {_key.Name} which is not registered on {GetType().Name}");
+                }
 
-            var service = services[_key];
-            if (service is IDisposable disposableService)
-                disposableService.Dispose();
+                var service = services[_key];
+                if (service is IDisposable disposableService)
+                    disposableService.Dispose();
 
-            services.Remove(_key);
+                services.Remove(_key);
 
 #if UNITY_EDITOR
-            Debug.Log($"Service {_key.Name} unregistered");
-#endif 
+                Debug.Log($"Service {_key.Name} unregistered");
+#endif
+            }
         }
     }
 }
