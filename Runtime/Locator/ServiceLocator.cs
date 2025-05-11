@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
 
-namespace RossoForge.Service
+namespace RossoForge.Service.Locator
 {
     public static class ServiceLocator
     {

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace RossoForge.Service
+namespace RossoForge.Service.Locator
 {
     public interface IServiceLocator
     {

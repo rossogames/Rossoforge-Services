@@ -1,0 +1,16 @@
+{
+    "name": "RossoForge.Service.Locator",
+    "rootNamespace": "RossoForge.Service.Locator",
+    "references": [
+        "RossoForge.Service"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
