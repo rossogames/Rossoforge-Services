@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/rossogames/RossoForge-Service/blob/package-main/logo.png?raw=true" alt="RossoForge" width="64"/></td>
+    <td><img src="https://github.com/rossogames/Rossoforge-Services/blob/master/logo.png?raw=true" alt="RossoForge" width="64"/></td>
     <td><h2>RossoForge - Service</h2></td>
   </tr>
 </table>
