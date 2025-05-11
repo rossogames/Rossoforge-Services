@@ -20,6 +20,7 @@ namespace RossoForge.Service.Locator
 #endif 
             }
         }
+
         public T Get<T>() where T : IService
         {
             lock (_lock)
@@ -33,19 +34,34 @@ namespace RossoForge.Service.Locator
                 return (T)services[key];
             }
         }
+
+        public bool TryGet<T>(out T service) where T : IService
+        {
+            lock (_lock)
+            {
+                if (services.TryGetValue(typeof(T), out var result))
+                {
+                    service = (T)result;
+                    return true;
+                }
+                service = default;
+                return false;
+            }
+        }
+
         public void Register<T>(T service) where T : IService
         {
             lock (_lock)
             {
-                Type _key = typeof(T);
-                if (services.ContainsKey(_key))
+                Type key = typeof(T);
+                if (services.ContainsKey(key))
                 {
-                    throw new InvalidOperationException($"Attempted to register service of type {_key.Name} which is already registered on {GetType().Name}");
+                    throw new InvalidOperationException($"Attempted to register service of type {key.Name} which is already registered on {GetType().Name}");
                 }
 
-                services.Add(_key, service);
+                services.Add(key, service);
 #if UNITY_EDITOR
-                Debug.Log($"Service {_key.Name} registered");
+                Debug.Log($"Service {key.Name} registered");
 #endif
             }
         }
@@ -54,20 +70,20 @@ namespace RossoForge.Service.Locator
         {
             lock (_lock)
             {
-                Type _key = typeof(T);
-                if (!services.ContainsKey(_key))
+                Type key = typeof(T);
+                if (!services.ContainsKey(key))
                 {
-                    throw new InvalidOperationException($"Attempted to unregister service of type {_key.Name} which is not registered on {GetType().Name}");
+                    throw new InvalidOperationException($"Attempted to unregister service of type {key.Name} which is not registered on {GetType().Name}");
                 }
 
-                var service = services[_key];
+                var service = services[key];
                 if (service is IDisposable disposableService)
                     disposableService.Dispose();
 
-                services.Remove(_key);
+                services.Remove(key);
 
 #if UNITY_EDITOR
-                Debug.Log($"Service {_key.Name} unregistered");
+                Debug.Log($"Service {key.Name} unregistered");
 #endif
             }
         }
