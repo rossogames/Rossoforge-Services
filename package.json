@@ -14,5 +14,10 @@
     "rossoforge"
   ],
   "samples": [
+    {
+      "displayName": "Basic Player Health Service",
+      "description": "Demonstrates how to register and use a player health service via the RossoForge Service Locator. Includes a UI label that updates with HP changes and an enemy that applies damage.",
+      "path": "Samples~/BasicPlayerHealth"
+    }
   ]
 }
