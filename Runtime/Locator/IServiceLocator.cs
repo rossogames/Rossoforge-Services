@@ -1,4 +1,4 @@
-namespace RossoForge.Service.Locator
+namespace RossoForge.Services.Locator
 {
     public interface IServiceLocator
     {

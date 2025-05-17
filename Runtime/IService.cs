@@ -1,7 +1,6 @@
-namespace RossoForge.Service
+namespace RossoForge.Services
 {
     public interface IService
     {
     }
 }
-

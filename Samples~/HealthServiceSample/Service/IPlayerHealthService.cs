@@ -1,10 +1,13 @@
-using RossoForge.Service;
+using RossoForge.Services;
 
-public interface IPlayerHealthService : IService, IInitializable
+namespace RossoForge.Services.Samples.PlayerHealth
 {
-    int CurrentHealth { get; }
-    void TakeDamage(int amount);
-    void Heal(int amount);
+    public interface IPlayerHealthService : IService, IInitializable
+    {
+        int CurrentHealth { get; }
+        void TakeDamage(int amount);
+        void Heal(int amount);
 
-    event HPDelegate HPChanged;
+        event HPDelegate HPChanged;
+    }
 }

@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
-using RossoForge.Service.Locator;
+using RossoForge.Services.Locator;
 
-public class GameInitializer : MonoBehaviour
+namespace RossoForge.Services.Samples.PlayerHealth
 {
-    void Awake()
+    public class GameInitializer : MonoBehaviour
     {
-        var locator = new DefaultServiceLocator();
-        locator.Register<IPlayerHealthService>(new PlayerHealthService());
+        void Awake()
+        {
+            var locator = new DefaultServiceLocator();
+            locator.Register<IPlayerHealthService>(new PlayerHealthService());
 
-        ServiceLocator.SetLocator(locator);
-        ServiceLocator.Initialize();
+            ServiceLocator.SetLocator(locator);
+            ServiceLocator.Initialize();
+        }
     }
 }

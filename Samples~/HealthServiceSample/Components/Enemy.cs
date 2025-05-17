@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
-using RossoForge.Service.Locator;
+using RossoForge.Services.Locator;
 
-public class Enemy : MonoBehaviour
+namespace RossoForge.Services.Samples.PlayerHealth
 {
-    private IPlayerHealthService playerHealthService;
-
-    public int damage = 25;
-
-    private void Start()
+    public class Enemy : MonoBehaviour
     {
-        playerHealthService = ServiceLocator.Get<IPlayerHealthService>();
-    }
+        private IPlayerHealthService playerHealthService;
 
-    public void ApplyDamage()
-    {
-        playerHealthService.TakeDamage(damage);
+        public int damage = 25;
+
+        private void Start()
+        {
+            playerHealthService = ServiceLocator.Get<IPlayerHealthService>();
+        }
+
+        public void ApplyDamage()
+        {
+            playerHealthService.TakeDamage(damage);
+        }
     }
 }

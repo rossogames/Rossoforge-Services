@@ -1,6 +1,6 @@
 using System;
 
-namespace RossoForge.Service.Locator
+namespace RossoForge.Services.Locator
 {
     public static class ServiceLocator
     {

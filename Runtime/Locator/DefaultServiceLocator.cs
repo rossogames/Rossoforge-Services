@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RossoForge.Service.Locator
+namespace RossoForge.Services.Locator
 {
     public class DefaultServiceLocator : IServiceLocator
     {

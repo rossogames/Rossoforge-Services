@@ -1,34 +1,37 @@
-using RossoForge.Service.Locator;
+using RossoForge.Services.Locator;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPLabel : MonoBehaviour
+namespace RossoForge.Services.Samples.PlayerHealth
 {
-    private IPlayerHealthService playerHealthService;
-
-    [SerializeField]
-    private Text _label;
-
-    private void Start()
+    public class HPLabel : MonoBehaviour
     {
-        playerHealthService = ServiceLocator.Get<IPlayerHealthService>();
-        playerHealthService.HPChanged += PlayerHealthService_HPChanged;
+        private IPlayerHealthService playerHealthService;
 
-        RefreshHP(playerHealthService.CurrentHealth);
-    }
+        [SerializeField]
+        private Text _label;
 
-    private void OnDestroy()
-    {
-        playerHealthService.HPChanged -= PlayerHealthService_HPChanged;
-    }
+        private void Start()
+        {
+            playerHealthService = ServiceLocator.Get<IPlayerHealthService>();
+            playerHealthService.HPChanged += PlayerHealthService_HPChanged;
 
-    private void PlayerHealthService_HPChanged(int currentHP)
-    {
-        RefreshHP(currentHP);
-    }
+            RefreshHP(playerHealthService.CurrentHealth);
+        }
 
-    private void RefreshHP(int currentHP)
-    {
-        _label.text = $"Player HP: {currentHP}";
+        private void OnDestroy()
+        {
+            playerHealthService.HPChanged -= PlayerHealthService_HPChanged;
+        }
+
+        private void PlayerHealthService_HPChanged(int currentHP)
+        {
+            RefreshHP(currentHP);
+        }
+
+        private void RefreshHP(int currentHP)
+        {
+            _label.text = $"Player HP: {currentHP}";
+        }
     }
 }
