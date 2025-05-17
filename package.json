@@ -2,7 +2,7 @@
   "name": "com.rossogames.rossoforge-services",
   "version": "1.0.0",
   "displayName": "RossoForge-Services",
-  "description": "\"RossoForge - Service\" is a lightweight and thread-safe Service Locator designed for Unity. It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.",
+  "description": "Is a lightweight and thread-safe Service Locator designed for Unity. It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.",
   "unity": "2025.0",
   "author": {
     "name": "Agustin Rosso",
