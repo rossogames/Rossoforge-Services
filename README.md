@@ -32,6 +32,7 @@ ServiceLocator.SetLocator(locator);
 
 // Anywhere in your code
 var myService = ServiceLocator.Get<IMyService>();
+```
 
 #
 This package is part of the **RossoForge** suite, designed to streamline and enhance Unity development workflows.
