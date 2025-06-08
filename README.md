@@ -10,6 +10,9 @@
 **RossoForge - Service** is a lightweight and thread-safe Service Locator designed for Unity.  
 It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.
 
+The following dependencies must be installed
+* [Rossoforge-Core](https://github.com/rossogames/Rossoforge-Core.git)
+
 Watch the tutorial on https://youtu.be/iMHBhLSjnYc
 
 #
