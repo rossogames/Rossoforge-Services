@@ -1,7 +1,9 @@
 {
     "name": "RossoForge.Services",
     "rootNamespace": "RossoForge.Services",
-    "references": [],
+    "references": [
+        "RossoForge.Core"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
