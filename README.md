@@ -12,10 +12,11 @@ It provides a centralized way to register, retrieve, and manage services at runt
 
 **Version**: Unity 6 or higher
 
-The following dependencies must be installed
+**Tutorial**: https://youtu.be/iMHBhLSjnYc
+
+**Dependencies**
 * [Rossoforge-Core](https://github.com/rossogames/Rossoforge-Core.git)
 
-Watch the tutorial on https://youtu.be/iMHBhLSjnYc
 
 #
 With RossoForge Service, you can:
