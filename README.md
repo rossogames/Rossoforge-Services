@@ -27,7 +27,6 @@ With this package, you can:
 - Use a thread-safe `DefaultServiceLocator` implementation.
 
 #
-### Example usage
 
 ```csharp
 // Setup
