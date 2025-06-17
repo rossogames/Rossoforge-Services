@@ -19,7 +19,7 @@ It provides a centralized way to register, retrieve, and manage services at runt
 
 
 #
-With RossoForge Service, you can:
+With this package, you can:
 
 - Register and retrieve services by interface using a clean API.
 - Automatically initialize services that implement `IInitializable`.
