@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/rossogames/Rossoforge-Services/blob/master/logo.png?raw=true" alt="RossoForge" width="64"/></td>
-    <td><h2>RossoForge - Service</h2></td>
+    <td><img src="https://github.com/rossogames/Rossoforge-Services/blob/master/logo.png?raw=true" alt="Rossoforge" width="64"/></td>
+    <td><h2>Rossoforge-Service</h2></td>
   </tr>
 </table>
 
-**RossoForge - Service** is a lightweight and thread-safe Service Locator designed for Unity.  
+**Rossoforge-Service** is a lightweight and thread-safe Service Locator designed for Unity.  
 It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.
 
 **Version**: Unity 6 or higher
@@ -40,7 +40,7 @@ var myService = ServiceLocator.Get<IMyService>();
 ```
 
 #
-This package is part of the **RossoForge** suite, designed to streamline and enhance Unity development workflows.
+This package is part of the **Rossoforge** suite, designed to streamline and enhance Unity development workflows.
 
 Developed by Agustin Rosso
 https://www.linkedin.com/in/rossoagustin/
