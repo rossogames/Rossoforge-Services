@@ -1,6 +1,6 @@
-using RossoForge.Core.Services;
+using Rossoforge.Core.Services;
 
-namespace RossoForge.Services.Samples.PlayerHealth
+namespace Rossoforge.Services.Samples.PlayerHealth
 {
     public interface IPlayerHealthService : IService, IInitializable
     {
