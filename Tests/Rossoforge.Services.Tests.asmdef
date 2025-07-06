@@ -1,7 +1,10 @@
 {
     "name": "Rossoforge.Services.Tests",
     "rootNamespace": "Rossoforge.Services.Tests",
-    "references": [],
+    "references": [
+        "Rossoforge.Services",
+        "Rossoforge.Core"
+    ],
     "includePlatforms": [
         "Editor"
     ],
