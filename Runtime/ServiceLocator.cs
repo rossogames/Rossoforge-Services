@@ -1,7 +1,7 @@
-using RossoForge.Core.Services;
+using Rossoforge.Core.Services;
 using System;
 
-namespace RossoForge.Services
+namespace Rossoforge.Services
 {
     public static class ServiceLocator
     {

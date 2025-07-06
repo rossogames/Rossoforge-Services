@@ -1,9 +1,9 @@
-using RossoForge.Core.Services;
+using Rossoforge.Core.Services;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RossoForge.Services
+namespace Rossoforge.Services
 {
     public class DefaultServiceLocator : IServiceLocator
     {
