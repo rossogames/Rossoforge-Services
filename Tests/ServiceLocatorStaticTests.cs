@@ -3,6 +3,7 @@ using System;
 
 namespace Rossoforge.Services.Tests
 {
+    [TestFixture]
     public class ServiceLocatorStaticTests
     {
         [SetUp]
