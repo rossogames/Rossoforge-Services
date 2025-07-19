@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RossoForge.Services.Samples.PlayerHealth
+namespace Rossoforge.Services.Samples.PlayerHealth
 {
     public class Enemy : MonoBehaviour
     {

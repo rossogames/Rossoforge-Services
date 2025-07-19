@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RossoForge.Services.Samples.PlayerHealth
+namespace Rossoforge.Services.Samples.PlayerHealth
 {
     public class HPLabel : MonoBehaviour
     {

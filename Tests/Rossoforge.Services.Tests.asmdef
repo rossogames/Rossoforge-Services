@@ -1,10 +1,13 @@
 {
-    "name": "RossoForge.Services",
-    "rootNamespace": "RossoForge.Services",
+    "name": "Rossoforge.Services.Tests",
+    "rootNamespace": "Rossoforge.Services.Tests",
     "references": [
-        "RossoForge.Core"
+        "Rossoforge.Services",
+        "Rossoforge.Core"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
