@@ -10,13 +10,13 @@
 **Rossoforge-Service** is a lightweight and thread-safe Service Locator designed for Unity.  
 It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.
 
-**Version**: Unity 6 or higher
+#
+**Version:** Unity 6 or higher
 
-**Tutorial**: https://youtu.be/iMHBhLSjnYc
+**Tutorial:** https://youtu.be/iMHBhLSjnYc
 
-**Dependencies**
+**Dependencies:**
 * [Rossoforge-Core](https://github.com/rossogames/Rossoforge-Core.git)
-
 
 #
 With this package, you can:
