@@ -13,7 +13,7 @@ It provides a centralized way to register, retrieve, and manage services at runt
 #
 **Version:** Unity 6 or higher
 
-**Tutorial:** https://youtu.be/iMHBhLSjnYc
+**Tutorial:** https://youtu.be/iMHBhLSjnYc (Spanish)
 
 **Dependencies:**
 * [Rossoforge-Core](https://github.com/rossogames/Rossoforge-Core.git)
