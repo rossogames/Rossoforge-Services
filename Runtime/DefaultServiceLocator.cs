@@ -88,5 +88,32 @@ namespace Rossoforge.Services
 #endif
             }
         }
+
+        public void Update()
+        {
+            foreach (var item in services)
+            {
+                if (item.Value is IUpdatable updatable)
+                    updatable.Update();
+            }
+        }
+
+        public void FixedUpdate()
+        {
+            foreach (var item in services)
+            {
+                if (item.Value is IFixedUpdatable updatable)
+                    updatable.FixedUpdate();
+            }
+        }
+
+        public void LateUpdate()
+        {
+            foreach (var item in services)
+            {
+                if (item.Value is ILateUpdatable updatable)
+                    updatable.LateUpdate();
+            }
+        }
     }
 }
