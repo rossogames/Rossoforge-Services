@@ -17,5 +17,9 @@ namespace Rossoforge.Services
         public static T Get<T>() where T : IService => _current.Get<T>();
         public static void Register<T>(T service) where T : IService => _current.Register<T>(service);
         public static void Unregister<T>() where T : IService => _current.Unregister<T>();
+
+        public static void Update() => _current.Update();
+        public static void FixedUpdate() => _current.FixedUpdate();
+        public static void LateUpdate() => _current.LateUpdate();
     }
 }

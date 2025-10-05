@@ -10,15 +10,16 @@ namespace Rossoforge.Services
         private readonly Dictionary<Type, IService> services = new();
         private readonly object _lock = new();
 
+        private readonly List<IInitializable> _initializables = new();
+        private readonly List<IUpdatable> _updatables = new();
+        private readonly List<IFixedUpdatable> _fixedUpdatables = new();
+        private readonly List<ILateUpdatable> _lateUpdatables = new();
+
         public void Initialize()
         {
-            foreach (var item in services)
+            for (int i = 0; i < _initializables.Count; i++)
             {
-                if (item.Value is IInitializable initializableService)
-                    initializableService.Initialize();
-#if UNITY_EDITOR
-                Debug.Log($"Service {item.Key.Name} initialized");
-#endif 
+                _initializables[i].Initialize();
             }
         }
 
@@ -61,6 +62,19 @@ namespace Rossoforge.Services
                 }
 
                 services.Add(key, service);
+
+                if (service is IInitializable initializableService)
+                    _initializables.Add(initializableService);
+
+                if (service is IUpdatable updatableService)
+                    _updatables.Add(updatableService);
+
+                if (service is IFixedUpdatable fixedUpdatableService)
+                    _fixedUpdatables.Add(fixedUpdatableService);
+
+                if (service is ILateUpdatable lateUpdatableService)
+                    _lateUpdatables.Add(lateUpdatableService);
+
 #if UNITY_EDITOR
                 Debug.Log($"Service {key.Name} registered");
 #endif
@@ -86,6 +100,30 @@ namespace Rossoforge.Services
 #if UNITY_EDITOR
                 Debug.Log($"Service {key.Name} unregistered");
 #endif
+            }
+        }
+
+        public void Update()
+        {
+            for (int i = 0; i < _updatables.Count; i++)
+            {
+                _updatables[i].Update();
+            }
+        }
+
+        public void FixedUpdate()
+        {
+            for (int i = 0; i < _fixedUpdatables.Count; i++)
+            {
+                _fixedUpdatables[i].FixedUpdate();
+            }
+        }
+
+        public void LateUpdate()
+        {
+            for (int i = 0; i < _lateUpdatables.Count; i++)
+            {
+                _lateUpdatables[i].LateUpdate();
             }
         }
     }
