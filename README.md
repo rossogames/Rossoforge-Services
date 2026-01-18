@@ -17,6 +17,7 @@ It provides a centralized way to register, retrieve, and manage services at runt
 
 **Dependencies:**
 * [Rossoforge-Core](https://github.com/rossogames/Rossoforge-Core.git)
+* [Rossoforge-Utils](https://github.com/rossogames/Rossoforge-Utils.git)
 
 #
 With this package, you can:

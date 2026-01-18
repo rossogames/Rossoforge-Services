@@ -2,7 +2,8 @@
     "name": "Rossoforge.Services",
     "rootNamespace": "Rossoforge.Services",
     "references": [
-        "Rossoforge.Core"
+        "Rossoforge.Core",
+        "Rossoforge.Utils"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,7 +1,7 @@
 using Rossoforge.Core.Services;
+using Rossoforge.Utils.Logger;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Rossoforge.Services
 {
@@ -75,9 +75,7 @@ namespace Rossoforge.Services
                 if (service is ILateUpdatable lateUpdatableService)
                     _lateUpdatables.Add(lateUpdatableService);
 
-#if UNITY_EDITOR
-                Debug.Log($"Service {key.Name} registered");
-#endif
+                RossoLogger.Info($"Service {key.Name} registered");
             }
         }
 
@@ -97,9 +95,7 @@ namespace Rossoforge.Services
 
                 services.Remove(key);
 
-#if UNITY_EDITOR
-                Debug.Log($"Service {key.Name} unregistered");
-#endif
+                RossoLogger.Info($"Service {key.Name} unregistered");
             }
         }
 
