@@ -23,6 +23,11 @@
       "displayName": "Service Updater",
       "description": "Prefab and sample scripts for using Update, FixedUpdate and LateUpdate in services",
       "path": "Samples~/ServiceUpdater"
+    },
+    {
+      "displayName": "Service Template",
+      "description": "A basic template demonstrating how to structure a service using interfaces, initialization hooks, and ScriptableObject data containers. This sample can be used as a starting point for creating new services that require configuration data and initialization logic",
+      "path": "Samples~/ServiceTemplate"
     }
   ]
 }
