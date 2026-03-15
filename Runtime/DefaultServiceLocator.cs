@@ -90,6 +90,19 @@ namespace Rossoforge.Services
                 }
 
                 var service = services[key];
+
+                if (service is IInitializable initializableService)
+                    _initializables.Remove(initializableService);
+
+                if (service is IUpdatable updatableService)
+                    _updatables.Remove(updatableService);
+
+                if (service is IFixedUpdatable fixedUpdatableService)
+                    _fixedUpdatables.Remove(fixedUpdatableService);
+
+                if (service is ILateUpdatable lateUpdatableService)
+                    _lateUpdatables.Remove(lateUpdatableService);
+
                 if (service is IDisposable disposableService)
                     disposableService.Dispose();
 

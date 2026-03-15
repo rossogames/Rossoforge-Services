@@ -7,9 +7,11 @@ namespace Rossoforge.Services.Samples.PlayerHealth
         void Awake()
         {
             var locator = new DefaultServiceLocator();
-            locator.Register<IPlayerHealthService>(new PlayerHealthService());
-
             ServiceLocator.SetLocator(locator);
+
+            var playerHealthService = new PlayerHealthService();
+            locator.Register<IPlayerHealthService>(playerHealthService);
+
             ServiceLocator.Initialize();
         }
     }

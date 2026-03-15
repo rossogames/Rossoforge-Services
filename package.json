@@ -1,6 +1,6 @@
 {
   "name": "com.rossogames.rossoforge-services",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "displayName": "Rossoforge-Services",
   "description": "Is a lightweight and thread-safe Service Locator designed for Unity. It provides a centralized way to register, retrieve, and manage services at runtime without relying on static singletons.",
   "unity": "2025.0",
@@ -23,6 +23,11 @@
       "displayName": "Service Updater",
       "description": "Prefab and sample scripts for using Update, FixedUpdate and LateUpdate in services",
       "path": "Samples~/ServiceUpdater"
+    },
+    {
+      "displayName": "Service Template",
+      "description": "A basic template demonstrating how to structure a service using interfaces, initialization hooks, and ScriptableObject data containers. This sample can be used as a starting point for creating new services that require configuration data and initialization logic",
+      "path": "Samples~/ServiceTemplate"
     }
   ]
 }
