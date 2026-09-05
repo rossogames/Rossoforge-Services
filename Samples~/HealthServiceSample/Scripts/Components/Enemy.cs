@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Rossoforge.Services.Locator;
+using UnityEngine;
 
 namespace Rossoforge.Services.Samples.PlayerHealth
 {

@@ -1,3 +1,4 @@
+using Rossoforge.Services.Locator;
 using UnityEngine;
 
 namespace Rossoforge.Services.Samples.Updater

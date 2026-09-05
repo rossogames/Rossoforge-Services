@@ -1,14 +1,14 @@
-using Rossoforge.Core.Services;
+using Rossoforge.Services.Service;
 
 namespace Rossoforge.Services.Samples.ServiceTemplate
 {
     public class TemplateService : ITemplateService, IInitializable
     {
-        private TemplateServiceData _serviceData;
+        private TemplateDataService _dataService;
 
-        public TemplateService(TemplateServiceData serviceData)
+        public TemplateService(TemplateDataService dataService)
         {
-            _serviceData = serviceData;
+            _dataService = dataService;
         }
 
         public void Initialize()

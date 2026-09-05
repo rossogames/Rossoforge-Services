@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Rossoforge.Services.Service;
+using UnityEngine;
 
 namespace Rossoforge.Services.Samples.PlayerHealth
 {
-    public class PlayerHealthService : IPlayerHealthService
+    public class PlayerHealthService : IPlayerHealthService, IInitializable
     {
         private int _maxHP = 100;
         private int _currentHP;

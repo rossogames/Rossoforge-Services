@@ -1,3 +1,4 @@
+using Rossoforge.Services.Locator;
 using UnityEngine;
 using UnityEngine.UI;
 
