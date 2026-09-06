@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Rossoforge.Services.Locator;
 using System;
 
 namespace Rossoforge.Services.Tests
